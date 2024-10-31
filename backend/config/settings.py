@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 CUSTOM_APPS = [
     'houses.apps.HousesConfig',
+    "users.apps.UsersConfig",
 ]
 SYSTEM_APPS = [
     'django.contrib.admin',
@@ -124,3 +125,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Auth
+# Custom User Model로 대체하기 위해 사용
+# 기존 django.contrib.auth.models.Users 모델을 사용하고 추가할 수 있음
+AUTH_USER_MODEL = "users.User"
