@@ -20,6 +20,7 @@ class Experience(CommonModel):
     host = models.ForeignKey(
         "users.User",
         on_delete=models.CASCADE,
+        related_name="experiences",
     )
     price = models.PositiveIntegerField()
     address = models.CharField(
@@ -28,7 +29,17 @@ class Experience(CommonModel):
     start = models.TimeField()
     end = models.TimeField()
     description = models.TextField()
-    perks = models.ManyToManyField("experiences.Perk")
+    perks = models.ManyToManyField(
+        "experiences.Perk",
+        related_name="experiences",
+    )
+    category = models.ForeignKey(
+        "categories.Category",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="experiences",
+    )
 
     def __str__(self) -> str:
         return self.name
@@ -37,6 +48,7 @@ class Experience(CommonModel):
 class Perk(CommonModel):
     """What is included on an Experience"""
 
+    # 특전, 추가적인 혜택
     name = models.CharField(
         max_length=100,
     )
