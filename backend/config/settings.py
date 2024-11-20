@@ -141,3 +141,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Custom User Model로 대체하기 위해 사용
 # 기존 django.contrib.auth.models.Users 모델을 사용하고 추가할 수 있음
 AUTH_USER_MODEL = "users.User"
+
+MEDIA_ROOT = "uploads"
+
+MEDIA_URL = "user-uploads/"
+
+PAGE_SIZE = 3
